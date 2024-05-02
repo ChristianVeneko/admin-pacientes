@@ -1,6 +1,10 @@
 <script setup>
+import Header from './components/Header.vue';
 </script>
 
 <template>
-  <h1 class="text-6xl ">Hola Mundo tailwind</h1>
+  <!-- esto centtra el header -->
+  <div class="container mx-auto mt-20">
+    <Header></Header>
+  </div>
 </template>
