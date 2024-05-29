@@ -9,7 +9,7 @@ const paciente = reactive({
 })
 
 const validar = () => {
-    if ([paciente.nombre, paciente.propietario].includes('')) {
+    if (Object.values(paciente).includes('')) {
         console.log('Error Debe de haber un paciente y un propietario')
     }
 }
