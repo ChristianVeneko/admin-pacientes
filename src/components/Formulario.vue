@@ -1,5 +1,13 @@
 <script setup>
 import { reactive } from 'vue';
+import Alerta from './Alerta.vue';
+
+const alerta = reactive({
+    tipo: '',
+    mensaje:''
+})
+
+//agrupa los states de una manera sencilla
 const paciente = reactive({
     nombre: '',
     propietario: '',
@@ -7,22 +15,29 @@ const paciente = reactive({
     alta: '',
     sintomas: '',
 })
-
+ 
 const validar = () => {
     if (Object.values(paciente).includes('')) {
-        console.log('Error Debe de haber un paciente y un propietario')
+        alerta.mensaje = "Todos los campos son obligarorios"
+        alerta.tipo = "error"
+        return
     }
 }
 
 </script>
 
 <template>
-    <div class="md:w-1/2">
+    <div class="md:1/2">
         <h2 class="font-black text-3xl text-center">Seguimiento Pacientes</h2>
         <p class="text-lg mt-5 text-center mb-10">
             Añade Pacientes y
             <span class="text-indigo-600 font-bold">Administralos</span>
         </p>
+
+        <Alerta v-if="alerta.mensaje" :alerta="alerta">
+            
+        </Alerta>
+
         <!-- shadow md a    grega sobras, y rounded agrega border radius, px es padding en el eje x y py padding en ej ele y,  mb es margin button -->
 
         <!--subimt.prevent es igual que  e.preventDefault() en la funcion validar-->
@@ -60,7 +75,7 @@ const validar = () => {
                     v-model="paciente.email">
             </div>
 
-            <div class="mb-5 ">
+            <div class="mb-5">
                 <label for="alta" class="block text-gray-700 uppercase font-bold">
                     Alta
                 </label>
