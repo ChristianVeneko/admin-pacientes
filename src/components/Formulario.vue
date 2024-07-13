@@ -34,6 +34,7 @@ const validar = () => {
             <span class="text-indigo-600 font-bold">Administralos</span>
         </p>
 
+        <!--Le paso el estado de alerta como prop al componente de alerta-->
         <Alerta v-if="alerta.mensaje" :alerta="alerta">
             
         </Alerta>
