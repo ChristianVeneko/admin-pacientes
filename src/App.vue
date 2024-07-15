@@ -6,6 +6,7 @@ import Formulario from './components/Formulario.vue';
 
 const pacientes = ref([]);
 
+
 //agrupa los states de una manera sencilla
 const paciente = reactive({
   nombre: '',
@@ -17,7 +18,17 @@ const paciente = reactive({
 
 
 const guardarPaciente = () => {
+  const nuevoPaciente = { ...paciente }; 
+  Object.assign(paciente, {
+    nombre: '',
+    propietario: '',
+    email: '',
+    alta: '',
+    sintomas: '',
+  });
   console.log('agregando paciente...');
+  pacientes.value.push(nuevoPaciente);
+  console.log(pacientes.value)
 }
 </script>
 
