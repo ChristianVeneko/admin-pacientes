@@ -14,7 +14,7 @@ const props = defineProps({
 const isError = computed(() => {
     //acceder al valor del tipo de alerta y verificar si es error
     return props.alerta.tipo == 'error'
-})
+});
 </script>
 
 <template>
